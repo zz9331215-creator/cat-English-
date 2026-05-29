@@ -1,0 +1,103 @@
+<view class="container home-page">
+  <!-- 顶部状态栏 -->
+  <view class="status-bar">
+    <view class="status-item growth">
+      <view class="status-icon">💗</view>
+      <view class="status-info">
+        <text class="status-value">{{pet.exp}}/{{pet.maxExp}}</text>
+        <text class="status-label">{{stageName}}</text>
+      </view>
+      <view class="status-progress">
+        <view class="status-progress-fill" style="width: {{growthPercent}}%"></view>
+      </view>
+    </view>
+    <view class="status-item satiety">
+      <view class="status-icon">🥛</view>
+      <view class="status-info">
+        <text class="status-value">{{pet.satiety}}%</text>
+        <text class="status-label">饱腹度</text>
+      </view>
+    </view>
+    <view class="status-item currency">
+      <view class="status-icon">🐟</view>
+      <view class="status-info">
+        <text class="status-value">{{catStrips}}</text>
+        <text class="status-label">猫条</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 猫房间场景 -->
+  <view class="room-scene">
+    <view class="room-wall"></view>
+    <view class="room-floor"></view>
+
+    <!-- 装饰 -->
+    <view class="deco window">
+      <view class="curtain curtain-left"></view>
+      <view class="curtain curtain-right"></view>
+    </view>
+    <view class="deco photo photo-1">🐱</view>
+    <view class="deco photo photo-2">😺</view>
+    <view class="deco board">
+      <text class="board-text">每日学英语打卡进行中</text>
+    </view>
+    <view class="deco cat-tree">🌳</view>
+    <view class="deco rug"></view>
+
+    <!-- 对话气泡 -->
+    <view class="speech-bubble" wx:if="{{showSpeech}}">
+      <text class="speech-text">{{speechText}}</text>
+      <view class="speech-btn" wx:if="{{pet.mood === 'hungry'}}" bindtap="goLearn">去学习</view>
+    </view>
+
+    <!-- 小猫咪 Lottie 动画 -->
+    <view class="kitten-area">
+      <lottie-cat
+        width="{{kittenWidth}}"
+        height="{{kittenHeight}}"
+        size="{{pet.size}}"
+        mood="{{pet.mood}}"
+        action="{{kittenAction === 'eating' ? 'eating' : 'idle'}}"
+      />
+    </view>
+  </view>
+
+  <!-- 右侧菜单 -->
+  <view class="side-menu">
+    <view class="menu-item" bindtap="goWords">
+      <view class="menu-icon">📖</view>
+      <text class="menu-label">背单词</text>
+    </view>
+    <view class="menu-item" bindtap="goSpeaking">
+      <view class="menu-icon">🎤</view>
+      <text class="menu-label">练口语</text>
+    </view>
+    <view class="menu-item" bindtap="goShop">
+      <view class="menu-icon">🏠</view>
+      <text class="menu-label">商店</text>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-actions">
+    <view class="feed-btn {{catStrips > 0 ? '' : 'disabled'}}" bindtap="feedKitten">
+      <text class="feed-icon">🐟</text>
+      <text class="feed-text">喂猫条</text>
+      <text class="feed-cost">-1</text>
+    </view>
+    <view class="learn-btn" bindtap="goLearn">
+      <text>开始学习</text>
+    </view>
+  </view>
+
+  <!-- 喂食奖励弹窗 -->
+  <view class="reward-modal" wx:if="{{showReward}}" bindtap="closeReward">
+    <view class="reward-content" catchtap="">
+      <text class="reward-emoji">🎉</text>
+      <text class="reward-title">喂食成功！</text>
+      <text class="reward-desc">咪咪获得了 {{rewardExp}} 经验值</text>
+      <text class="reward-stage" wx:if="{{stageUp}}">恭喜升级到 {{stageName}}！</text>
+    </view>
+  </view>
+</view>

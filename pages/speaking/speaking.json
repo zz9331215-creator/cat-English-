@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "练口语",
+  "usingComponents": {
+    "lottie-cat": "/components/lottie-cat/lottie-cat"
+  }
+}

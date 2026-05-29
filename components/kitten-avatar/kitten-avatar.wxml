@@ -1,0 +1,66 @@
+<view class="kitten-wrap {{mood}} {{action}}" style="transform: scale({{size}});">
+  <!-- 尾巴 -->
+  <view class="tail">
+    <view class="tail-inner"></view>
+  </view>
+
+  <!-- 身体 -->
+  <view class="body">
+    <view class="belly"></view>
+    <!-- 前爪 -->
+    <view class="paw paw-left"></view>
+    <view class="paw paw-right"></view>
+  </view>
+
+  <!-- 头部 -->
+  <view class="head">
+    <!-- 耳朵 -->
+    <view class="ear ear-left">
+      <view class="ear-inner"></view>
+    </view>
+    <view class="ear ear-right">
+      <view class="ear-inner"></view>
+    </view>
+
+    <!-- 蝴蝶结 -->
+    <view class="bow bow-left"></view>
+    <view class="bow bow-right"></view>
+    <view class="bow-center"></view>
+
+    <!-- 脸 -->
+    <view class="face">
+      <!-- 眼睛 -->
+      <view class="eye eye-left">
+        <view class="eye-white">
+          <view class="pupil"></view>
+          <view class="highlight"></view>
+        </view>
+        <view class="eyelid"></view>
+      </view>
+      <view class="eye eye-right">
+        <view class="eye-white">
+          <view class="pupil"></view>
+          <view class="highlight"></view>
+        </view>
+        <view class="eyelid"></view>
+      </view>
+
+      <!-- 鼻子嘴巴 -->
+      <view class="nose"></view>
+      <view class="mouth"></view>
+      <view class="whisker whisker-l1"></view>
+      <view class="whisker whisker-l2"></view>
+      <view class="whisker whisker-r1"></view>
+      <view class="whisker whisker-r2"></view>
+
+      <!-- 腮红 -->
+      <view class="blush blush-left"></view>
+      <view class="blush blush-right"></view>
+    </view>
+  </view>
+
+  <!-- 吃鱼干动画 -->
+  <view class="fish-snack" wx:if="{{action === 'eating'}}">
+    <text>🐟</text>
+  </view>
+</view>

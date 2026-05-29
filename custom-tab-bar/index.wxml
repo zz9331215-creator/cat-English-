@@ -1,0 +1,24 @@
+<view class="tab-bar safe-bottom">
+  <view
+    wx:for="{{list}}"
+    wx:key="index"
+    class="tab-bar-item {{selected === index ? 'active' : ''}} {{index === 2 ? 'center-item' : ''}}"
+    data-path="{{item.pagePath}}"
+    data-index="{{index}}"
+    bindtap="switchTab"
+  >
+    <block wx:if="{{index !== 2}}">
+      <view class="tab-icon-wrap">
+        <text class="tab-icon">{{item.icon}}</text>
+      </view>
+      <text class="tab-text">{{item.text}}</text>
+    </block>
+    <block wx:else>
+      <view class="cat-head-btn">
+        <view class="cat-ear cat-ear-left"></view>
+        <view class="cat-ear cat-ear-right"></view>
+        <text class="cat-btn-text">喵屋</text>
+      </view>
+    </block>
+  </view>
+</view>

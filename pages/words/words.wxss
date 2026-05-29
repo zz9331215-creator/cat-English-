@@ -1,0 +1,155 @@
+.words-page {
+  padding: 32rpx;
+  background: #F7F7F8;
+  min-height: 100vh;
+}
+
+.progress-header {
+  margin-bottom: 40rpx;
+}
+
+.progress-text {
+  font-size: 28rpx;
+  color: #8E8E93;
+  font-weight: 500;
+}
+
+.progress-bar {
+  height: 8rpx;
+  background: #E8E8E8;
+  border-radius: 4rpx;
+  margin: 16rpx 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9D42, #FFB86C);
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.strips-earned {
+  font-size: 26rpx;
+  color: #FF9D42;
+  font-weight: 600;
+}
+
+.word-card {
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  padding: 80rpx 40rpx;
+  min-height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 48rpx;
+  transition: transform 0.3s ease;
+}
+
+.word-card:active {
+  transform: scale(0.98);
+}
+
+.word-text {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.phonetic {
+  font-size: 32rpx;
+  color: #8E8E93;
+  margin-top: 16rpx;
+}
+
+.tap-hint {
+  font-size: 24rpx;
+  color: #C0C0C0;
+  margin-top: 40rpx;
+}
+
+.card-back {
+  display: none;
+}
+
+.word-card.flipped .card-front {
+  display: none;
+}
+
+.word-card.flipped .card-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meaning {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #FF9D42;
+}
+
+.example {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 24rpx;
+  text-align: center;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.action-row {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 96rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.forget {
+  background: #FFF0F0;
+  color: #FF6B6B;
+}
+
+.know {
+  background: #E8F5E9;
+  color: #34C759;
+}
+
+.speak-row {
+  display: flex;
+  gap: 20rpx;
+  justify-content: center;
+}
+
+.speak-btn, .accent-btn {
+  padding: 24rpx 36rpx;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+}
+
+.speak-btn {
+  background: #FFF3E6;
+  color: #FF9D42;
+  font-weight: 600;
+}
+
+.speak-btn.playing {
+  opacity: 0.7;
+}
+
+.accent-btn {
+  background: #F0F0F0;
+  color: #666;
+}

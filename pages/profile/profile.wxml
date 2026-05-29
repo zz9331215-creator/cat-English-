@@ -1,0 +1,68 @@
+<view class="container profile-page">
+  <!-- 用户信息 -->
+  <view class="user-header">
+    <image class="avatar-img" src="/assets/icons/app-icon-144.png" mode="aspectFill" />
+    <view class="user-info">
+      <text class="username">{{user.nickname}}</text>
+      <text class="user-id">学习天数: {{studyDays}} 天</text>
+    </view>
+    <view class="header-actions">
+      <text class="action-icon">⚙️</text>
+    </view>
+  </view>
+
+  <!-- 宠物信息卡 -->
+  <view class="pet-card">
+    <view class="pet-card-inner">
+      <text class="pet-card-title">🐱 {{pet.name}} · {{stageName}}</text>
+      <text class="pet-card-desc">经验 {{pet.exp}} · 饱腹 {{pet.satiety}}%</text>
+      <view class="pet-card-stats">
+        <view class="pet-stat">
+          <text class="pet-stat-value">{{catStrips}}</text>
+          <text class="pet-stat-label">猫条</text>
+        </view>
+        <view class="pet-stat">
+          <text class="pet-stat-value">{{stats.wordsLearned}}</text>
+          <text class="pet-stat-label">单词</text>
+        </view>
+        <view class="pet-stat">
+          <text class="pet-stat-value">{{stats.speakingMinutes}}m</text>
+          <text class="pet-stat-label">口语</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置列表 -->
+  <view class="settings-section card">
+    <text class="section-label">学习设置</text>
+    <view class="setting-item">
+      <text>每日单词目标</text>
+      <text class="setting-value">{{settings.dailyWordGoal}} 个</text>
+    </view>
+    <view class="setting-item">
+      <text>每日口语目标</text>
+      <text class="setting-value">{{settings.dailySpeakingGoal}} 分钟</text>
+    </view>
+    <view class="setting-item">
+      <text>专注时长</text>
+      <text class="setting-value">{{settings.focusDuration}} 分钟</text>
+    </view>
+  </view>
+
+  <view class="settings-section card">
+    <text class="section-label">其他</text>
+    <view class="setting-item" bindtap="resetData">
+      <text>重置学习数据</text>
+      <text class="setting-arrow">></text>
+    </view>
+    <view class="setting-item">
+      <text>关于喵学英语</text>
+      <text class="setting-arrow">></text>
+    </view>
+    <view class="setting-item">
+      <text>隐私政策</text>
+      <text class="setting-arrow">></text>
+    </view>
+  </view>
+</view>

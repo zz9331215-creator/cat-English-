@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+package-lock.json
+miniprogram_npm/
+/scripts/dev-open.bat

@@ -1,0 +1,60 @@
+<view class="container plan-page">
+  <!-- 顶部标签 -->
+  <view class="tab-header">
+    <text class="tab active">日程</text>
+    <text class="tab">目标</text>
+  </view>
+
+  <!-- 日历 -->
+  <view class="calendar-section">
+    <view class="month-row">
+      <text class="month-text">{{monthText}}</text>
+    </view>
+    <view class="week-row">
+      <text class="week-day" wx:for="{{weekDays}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="date-row">
+      <view
+        class="date-item {{item.isToday ? 'today' : ''}}"
+        wx:for="{{dates}}"
+        wx:key="key"
+      >
+        <text class="date-num">{{item.isToday ? '今' : item.date}}</text>
+        <view class="date-dot" wx:if="{{item.hasRecord}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 当日进度 -->
+  <view class="daily-progress card">
+    <view class="progress-ring">
+      <text class="ring-text">{{dailyPercent}}%</text>
+    </view>
+    <view class="progress-info">
+      <text class="progress-title">当日进度</text>
+      <text class="progress-desc">已完成 {{doneCount}}/{{tasks.length}} 个任务</text>
+    </view>
+  </view>
+
+  <!-- 任务列表 -->
+  <view class="task-list">
+    <view class="task-card" wx:for="{{tasks}}" wx:key="id">
+      <view class="task-check {{item.done ? 'checked' : ''}}" data-id="{{item.id}}" bindtap="toggleTask">
+        <text wx:if="{{item.done}}">✓</text>
+      </view>
+      <view class="task-content">
+        <text class="task-title">{{item.title}}</text>
+        <text class="task-status">{{item.done ? '已完成' : '今天'}} · {{item.current}}/{{item.target}}</text>
+      </view>
+      <view class="task-action" data-type="{{item.type}}" bindtap="goPractice">
+        <text>去练习 ></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新增按钮 -->
+  <view class="fab" bindtap="addTask">
+    <text class="fab-icon">🐾</text>
+    <text class="fab-text">新增</text>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+{
+  "name": "english-cat-miniapp",
+  "version": "1.0.0",
+  "description": "一款融合英语口语练习、单词背诵与猫咪养成机制的微信小程序。完成学习目标可获得猫条，喂养小猫咪使其逐步成长。",
+  "main": "app.js",
+  "scripts": {
+    "open": "scripts\\dev-open.bat",
+    "build:npm": "node scripts/build-npm.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "lottie-miniprogram": "^1.0.12"
+  }
+}

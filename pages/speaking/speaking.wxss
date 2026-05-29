@@ -1,0 +1,135 @@
+.speaking-page {
+  padding: 32rpx;
+  background: #FFFFFF;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 32rpx;
+}
+
+.topic-card {
+  background: #FFF8E7;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.topic-header {
+  margin-bottom: 16rpx;
+}
+
+.topic-tag {
+  display: inline-block;
+  background: #FF9D42;
+  color: #FFF;
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+  margin-bottom: 12rpx;
+}
+
+.topic-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.topic-prompt {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.topic-hint {
+  font-size: 24rpx;
+  color: #8E8E93;
+}
+
+.companion-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.companion-text {
+  font-size: 26rpx;
+  color: #FF9D42;
+  margin-top: 12rpx;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.timer-area {
+  text-align: center;
+  margin: 32rpx 0;
+}
+
+.speak-timer {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+  display: block;
+  font-size: 26rpx;
+  color: #8E8E93;
+  margin-top: 8rpx;
+}
+
+.record-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.record-btn {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.record-btn.recording {
+  background: #FF6B6B;
+  animation: record-pulse 1s ease-in-out infinite;
+  box-shadow: 0 8rpx 32rpx rgba(255, 107, 107, 0.4);
+}
+
+@keyframes record-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.record-icon {
+  font-size: 56rpx;
+}
+
+.record-hint {
+  font-size: 26rpx;
+  color: #8E8E93;
+  margin-top: 16rpx;
+}
+
+.change-topic {
+  text-align: center;
+  padding: 24rpx;
+  color: #8E8E93;
+  font-size: 28rpx;
+}

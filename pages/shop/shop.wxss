@@ -1,0 +1,89 @@
+.shop-page {
+  padding: 32rpx;
+  background: #F7F7F8;
+  min-height: 100vh;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.balance {
+  font-size: 28rpx;
+  color: #FF9D42;
+  font-weight: 600;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 32rpx;
+}
+
+.shop-item {
+  background: #FFF;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.item-emoji {
+  font-size: 64rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 12rpx;
+}
+
+.item-desc {
+  font-size: 22rpx;
+  color: #8E8E93;
+  margin-top: 4rpx;
+}
+
+.item-price {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #FF9D42;
+  font-weight: 600;
+}
+
+.buy-btn {
+  margin-top: 16rpx;
+  background: #1A1A1A;
+  color: #FFF;
+  padding: 12rpx 40rpx;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+}
+
+.buy-btn.disabled {
+  opacity: 0.4;
+}
+
+.earn-tip {
+  padding: 28rpx;
+}
+
+.tip-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.tip-item {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 8rpx;
+}

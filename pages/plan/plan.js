@@ -1,0 +1,72 @@
+const { getStore } = require('../../utils/store')
+const { getWeekDates, getProgressPercent } = require('../../utils/util')
+
+Page({
+  data: {
+    monthText: '',
+    weekDays: ['日', '一', '二', '三', '四', '五', '六'],
+    dates: [],
+    tasks: [],
+    doneCount: 0,
+    dailyPercent: 0
+  },
+
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 1 })
+    }
+    this.loadData()
+  },
+
+  loadData() {
+    const store = getStore()
+    const now = new Date()
+    const dates = getWeekDates().map(d => ({
+      ...d,
+      hasRecord: !!store.stats.dailyRecords[d.key]
+    }))
+    const tasks = store.tasks.items
+    const doneCount = tasks.filter(t => t.done).length
+
+    this.setData({
+      monthText: `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}`,
+      dates,
+      tasks,
+      doneCount,
+      dailyPercent: getProgressPercent(doneCount, tasks.length)
+    })
+  },
+
+  toggleTask(e) {
+    const id = e.currentTarget.dataset.id
+    const store = getStore()
+    const task = store.tasks.items.find(t => t.id === id)
+    if (task) {
+      task.done = !task.done
+      if (task.done) task.current = task.target
+      const { saveStore } = require('../../utils/store')
+      saveStore(store)
+      this.loadData()
+    }
+  },
+
+  goPractice(e) {
+    const type = e.currentTarget.dataset.type
+    if (type === 'words') {
+      wx.navigateTo({ url: '/pages/words/words' })
+    } else {
+      wx.navigateTo({ url: '/pages/speaking/speaking' })
+    }
+  },
+
+  addTask() {
+    wx.showActionSheet({
+      itemList: ['背单词任务', '口语练习任务'],
+      success: (res) => {
+        const type = res.tapIndex === 0 ? 'words' : 'speaking'
+        const url = type === 'words' ? '/pages/words/words' : '/pages/speaking/speaking'
+        wx.navigateTo({ url })
+      }
+    })
+  }
+})

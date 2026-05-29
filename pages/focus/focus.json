@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "专注学习",
+  "usingComponents": {
+    "lottie-cat": "/components/lottie-cat/lottie-cat"
+  }
+}

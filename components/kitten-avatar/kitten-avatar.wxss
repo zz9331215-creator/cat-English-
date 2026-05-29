@@ -1,0 +1,329 @@
+.kitten-wrap {
+  position: relative;
+  width: 280rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  animation: breathe 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.kitten-wrap.eating {
+  animation: eat-bounce 0.5s ease-in-out infinite;
+}
+
+.kitten-wrap.hungry .mouth {
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+  border: 3rpx solid #555;
+  background: #FF8A8A;
+}
+
+/* 呼吸动画 */
+@keyframes breathe {
+  0%, 100% { transform: scale(var(--scale, 1)) translateY(0); }
+  50% { transform: scale(var(--scale, 1)) translateY(-8rpx); }
+}
+
+@keyframes eat-bounce {
+  0%, 100% { transform: scale(var(--scale, 1)) rotate(0deg); }
+  25% { transform: scale(var(--scale, 1)) rotate(-3deg); }
+  75% { transform: scale(var(--scale, 1)) rotate(3deg); }
+}
+
+/* 尾巴 */
+.tail {
+  position: absolute;
+  bottom: 60rpx;
+  right: 20rpx;
+  width: 24rpx;
+  height: 100rpx;
+  transform-origin: bottom center;
+  animation: tail-wag 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.tail-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #E8E8E8 0%, #C8C8C8 100%);
+  border-radius: 12rpx;
+  border: 3rpx solid #555;
+}
+
+@keyframes tail-wag {
+  0%, 100% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+/* 身体 */
+.body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180rpx;
+  height: 140rpx;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+  border-radius: 90rpx 90rpx 60rpx 60rpx;
+  border: 4rpx solid #555;
+  z-index: 2;
+}
+
+.belly {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100rpx;
+  height: 70rpx;
+  background: #FFFFFF;
+  border-radius: 50rpx;
+  opacity: 0.8;
+}
+
+.paw {
+  position: absolute;
+  bottom: -10rpx;
+  width: 44rpx;
+  height: 36rpx;
+  background: #FAFAFA;
+  border: 3rpx solid #555;
+  border-radius: 22rpx;
+}
+
+.paw-left { left: 30rpx; }
+.paw-right { right: 30rpx; }
+
+/* 头部 */
+.head {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200rpx;
+  height: 180rpx;
+  z-index: 3;
+}
+
+/* 耳朵 */
+.ear {
+  position: absolute;
+  top: 0;
+  width: 60rpx;
+  height: 70rpx;
+  background: #FAFAFA;
+  border: 4rpx solid #555;
+  z-index: 1;
+}
+
+.ear-left {
+  left: 10rpx;
+  border-radius: 30rpx 30rpx 0 0;
+  transform: rotate(-15deg);
+  animation: ear-twitch-left 4s ease-in-out infinite;
+}
+
+.ear-right {
+  right: 10rpx;
+  border-radius: 30rpx 30rpx 0 0;
+  transform: rotate(15deg);
+  animation: ear-twitch-right 4s ease-in-out infinite 0.5s;
+}
+
+.ear-inner {
+  position: absolute;
+  top: 12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30rpx;
+  height: 36rpx;
+  background: #FFB6C1;
+  border-radius: 15rpx 15rpx 0 0;
+}
+
+@keyframes ear-twitch-left {
+  0%, 90%, 100% { transform: rotate(-15deg); }
+  95% { transform: rotate(-25deg); }
+}
+
+@keyframes ear-twitch-right {
+  0%, 90%, 100% { transform: rotate(15deg); }
+  95% { transform: rotate(25deg); }
+}
+
+/* 蝴蝶结 */
+.bow {
+  position: absolute;
+  top: 30rpx;
+  width: 28rpx;
+  height: 20rpx;
+  background: #C9A0FF;
+  border: 2rpx solid #9B6FD0;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.bow-left {
+  left: 28rpx;
+  transform: rotate(-20deg);
+}
+
+.bow-right {
+  right: 28rpx;
+  transform: rotate(20deg);
+}
+
+.bow-center {
+  position: absolute;
+  top: 36rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14rpx;
+  height: 14rpx;
+  background: #B088E8;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+/* 脸 */
+.face {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170rpx;
+  height: 150rpx;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+  border-radius: 50%;
+  border: 4rpx solid #555;
+}
+
+/* 眼睛 */
+.eye {
+  position: absolute;
+  top: 45rpx;
+  width: 44rpx;
+  height: 48rpx;
+}
+
+.eye-left { left: 28rpx; }
+.eye-right { right: 28rpx; }
+
+.eye-white {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 50%;
+  border: 3rpx solid #555;
+  overflow: hidden;
+  position: relative;
+}
+
+.pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 28rpx;
+  height: 32rpx;
+  background: radial-gradient(circle at 40% 35%, #6BB5FF 0%, #4A90D9 60%, #2E6BB0 100%);
+  border-radius: 50%;
+}
+
+.highlight {
+  position: absolute;
+  top: 8rpx;
+  left: 8rpx;
+  width: 12rpx;
+  height: 12rpx;
+  background: #FFFFFF;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.eyelid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FAFAFA;
+  border-radius: 50%;
+  transform-origin: top center;
+  animation: blink 4s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes blink {
+  0%, 48%, 52%, 100% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+}
+
+/* 鼻子 */
+.nose {
+  position: absolute;
+  top: 88rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16rpx;
+  height: 12rpx;
+  background: #FFB6C1;
+  border-radius: 50%;
+  border: 2rpx solid #E8909A;
+}
+
+/* 嘴巴 */
+.mouth {
+  position: absolute;
+  top: 98rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24rpx;
+  height: 12rpx;
+  border-bottom: 3rpx solid #555;
+  border-radius: 0 0 12rpx 12rpx;
+}
+
+/* 胡须 */
+.whisker {
+  position: absolute;
+  top: 90rpx;
+  width: 40rpx;
+  height: 2rpx;
+  background: #999;
+}
+
+.whisker-l1 { left: -10rpx; transform: rotate(-10deg); }
+.whisker-l2 { left: -10rpx; top: 100rpx; transform: rotate(10deg); }
+.whisker-r1 { right: -10rpx; transform: rotate(10deg); }
+.whisker-r2 { right: -10rpx; top: 100rpx; transform: rotate(-10deg); }
+
+/* 腮红 */
+.blush {
+  position: absolute;
+  top: 78rpx;
+  width: 28rpx;
+  height: 16rpx;
+  background: #FFB6C1;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.blush-left { left: 8rpx; }
+.blush-right { right: 8rpx; }
+
+/* 鱼干零食 */
+.fish-snack {
+  position: absolute;
+  top: 120rpx;
+  right: -20rpx;
+  font-size: 48rpx;
+  animation: fish-eat 0.6s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes fish-eat {
+  0%, 100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateX(-30rpx) rotate(-20deg); opacity: 0.3; }
+}

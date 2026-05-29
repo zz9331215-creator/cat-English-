@@ -1,0 +1,14 @@
+<view class="lottie-wrap" style="width: {{width}}rpx; height: {{height}}rpx;">
+  <canvas
+    type="2d"
+    id="lottie-canvas"
+    class="lottie-canvas"
+    style="width: {{width}}rpx; height: {{height}}rpx;"
+  ></canvas>
+  <kitten-avatar
+    wx:if="{{useFallback}}"
+    size="{{size}}"
+    mood="{{mood}}"
+    action="{{action}}"
+  />
+</view>
