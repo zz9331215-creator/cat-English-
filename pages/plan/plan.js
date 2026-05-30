@@ -1,14 +1,25 @@
 const { getStore } = require('../../utils/store')
 const { getWeekDates, getProgressPercent } = require('../../utils/util')
+const TEXT = require('../../utils/texts')
 
 Page({
   data: {
+    t: TEXT,
     monthText: '',
-    weekDays: ['日', '一', '二', '三', '四', '五', '六'],
+    weekDays: [
+      TEXT.weekSun,
+      TEXT.weekMon,
+      TEXT.weekTue,
+      TEXT.weekWed,
+      TEXT.weekThu,
+      TEXT.weekFri,
+      TEXT.weekSat
+    ],
     dates: [],
     tasks: [],
     doneCount: 0,
-    dailyPercent: 0
+    dailyPercent: 0,
+    progressDesc: ''
   },
 
   onShow() {
@@ -33,7 +44,11 @@ Page({
       dates,
       tasks,
       doneCount,
-      dailyPercent: getProgressPercent(doneCount, tasks.length)
+      dailyPercent: getProgressPercent(doneCount, tasks.length),
+      progressDesc: TEXT.format(TEXT.planProgressDesc, {
+        done: doneCount,
+        total: tasks.length
+      })
     })
   },
 
@@ -61,7 +76,7 @@ Page({
 
   addTask() {
     wx.showActionSheet({
-      itemList: ['背单词任务', '口语练习任务'],
+      itemList: [TEXT.planAddWords, TEXT.planAddSpeaking],
       success: (res) => {
         const type = res.tapIndex === 0 ? 'words' : 'speaking'
         const url = type === 'words' ? '/pages/words/words' : '/pages/speaking/speaking'

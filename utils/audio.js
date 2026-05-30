@@ -1,3 +1,5 @@
+const TEXT = require('./texts')
+
 const PRONUNCIATION = {
   us: (word) => `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(word)}&type=1`,
   uk: (word) => `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(word)}&type=2`
@@ -38,14 +40,14 @@ function fetchDictionaryAudio(word) {
       method: 'GET',
       success(res) {
         if (res.statusCode !== 200 || !res.data || !res.data.length) {
-          reject(new Error('词典未找到该单词'))
+          reject(new Error(TEXT.dictNotFound))
           return
         }
         const entry = res.data[0]
         const phonetics = entry.phonetics || []
         const audioItem = phonetics.find((p) => p.audio) || {}
         if (!audioItem.audio) {
-          reject(new Error('暂无发音资源'))
+          reject(new Error(TEXT.audioNoResource))
           return
         }
         resolve({

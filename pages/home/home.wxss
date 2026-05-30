@@ -109,7 +109,7 @@
   border-top: 4rpx solid #D4C4A0;
 }
 
-/* 装饰物 */
+/* 装饰�? */
 .deco {
   position: absolute;
   z-index: 2;
@@ -148,6 +148,12 @@
   justify-content: center;
   font-size: 32rpx;
   box-shadow: 2rpx 4rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rpx;
 }
 
 .photo-1 { top: 60rpx; right: 180rpx; transform: rotate(-5deg); }
@@ -238,10 +244,17 @@
 /* 小猫区域 */
 .kitten-area {
   position: absolute;
-  bottom: 24%;
+  bottom: 22%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 6;
+  width: 320rpx;
+  height: 340rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+  pointer-events: auto;
 }
 
 /* 右侧菜单 */

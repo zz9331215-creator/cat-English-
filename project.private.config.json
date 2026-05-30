@@ -1,5 +1,5 @@
 {
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。",
+  "description": "private",
   "projectname": "english-cat-miniapp",
   "setting": {
     "compileHotReLoad": true,
@@ -19,6 +19,6 @@
     "bigPackageSizeSupport": false,
     "useIsolateContext": true
   },
-  "libVersion": "3.16.1",
+  "libVersion": "3.5.5",
   "condition": {}
 }

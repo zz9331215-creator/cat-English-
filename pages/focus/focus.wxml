@@ -1,72 +1,52 @@
 <view class="container focus-page">
   <view class="header">
-    <text class="section-title">专注学英语</text>
-    <text class="section-subtitle">和咪咪一起进步</text>
+    <text class="section-title">{{t.focusTitle}}</text>
+    <text class="section-subtitle">{{t.focusSubtitle}}</text>
   </view>
-
-  <!-- 番茄钟圆环 -->
   <view class="timer-ring-wrap">
     <view class="timer-ring">
       <view class="ring-progress" style="--progress: {{progressPercent}}"></view>
       <view class="ring-inner">
-        <lottie-cat width="200" height="200" size="0.7" mood="happy" action="studying" />
+        <kitten-avatar size="{{petDisplaySize}}" stage="{{petStage}}" mood="{{petMood}}" action="{{kittenAction}}" />
       </view>
     </view>
     <view class="community-tag">
-      <text>{{onlineCount}} 人正在专注</text>
+      <text>{{onlineCount}}{{t.focusOnlineSuffix}}</text>
     </view>
   </view>
-
-  <!-- 计时器 -->
   <view class="timer-display">
     <text class="timer-text">{{timerDisplay}}</text>
-    <text class="reward-hint" wx:if="{{isRunning}}">+{{expectedReward}} 猫条</text>
+    <text class="reward-hint" wx:if="{{isRunning}}">+{{expectedReward}}{{t.focusRewardSuffix}}</text>
   </view>
-
-  <!-- 学习类型选择 -->
   <view class="type-selector">
-    <view
-      class="type-item {{learnType === 'words' ? 'active' : ''}}"
-      data-type="words"
-      bindtap="selectType"
-    >
-      <text class="type-icon">📖</text>
-      <text>背单词</text>
+    <view class="type-item {{learnType === 'words' ? 'active' : ''}}" data-type="words" bindtap="selectType">
+      <text class="type-icon">{{t.iconBook}}</text>
+      <text>{{t.focusTypeWords}}</text>
     </view>
-    <view
-      class="type-item {{learnType === 'speaking' ? 'active' : ''}}"
-      data-type="speaking"
-      bindtap="selectType"
-    >
-      <text class="type-icon">🎤</text>
-      <text>练口语</text>
+    <view class="type-item {{learnType === 'speaking' ? 'active' : ''}}" data-type="speaking" bindtap="selectType">
+      <text class="type-icon">{{t.iconMic}}</text>
+      <text>{{t.focusTypeSpeaking}}</text>
     </view>
   </view>
-
-  <!-- 操作按钮 -->
   <view class="action-bar">
-    <view class="bowl-btn" bindtap="quickFeed">
-      <text>🍽️</text>
-    </view>
+    <view class="bowl-btn" bindtap="quickFeed"><text>{{t.iconBowl}}</text></view>
     <button class="btn-primary start-btn" bindtap="toggleTimer">
-      <text wx:if="{{!isRunning}}">🐾 开始</text>
-      <text wx:else>⏸ 暂停</text>
+      <text wx:if="{{!isRunning}}">{{t.iconPaw}} {{t.focusStart}}</text>
+      <text wx:else>{{t.focusPause}}</text>
     </button>
   </view>
-
-  <!-- 快捷入口 -->
   <view class="quick-links">
     <view class="quick-item" bindtap="goWords">
-      <text class="quick-icon">📚</text>
-      <text class="quick-label">单词本</text>
+      <text class="quick-icon">{{t.iconBooks}}</text>
+      <text class="quick-label">{{t.focusWordBook}}</text>
     </view>
     <view class="quick-item" bindtap="goSpeaking">
-      <text class="quick-icon">💬</text>
-      <text class="quick-label">口语练习</text>
+      <text class="quick-icon">{{t.iconChat}}</text>
+      <text class="quick-label">{{t.focusSpeakingPractice}}</text>
     </view>
     <view class="quick-item" bindtap="goHome">
-      <text class="quick-icon">🏠</text>
-      <text class="quick-label">喵屋</text>
+      <text class="quick-icon">{{t.iconHome}}</text>
+      <text class="quick-label">{{t.tabHome}}</text>
     </view>
   </view>
 </view>

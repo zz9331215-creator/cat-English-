@@ -1,3 +1,5 @@
+const TEXT = require('./texts')
+
 function formatTime(seconds) {
   const m = Math.floor(seconds / 60)
   const s = seconds % 60
@@ -5,10 +7,14 @@ function formatTime(seconds) {
 }
 
 function formatDuration(minutes) {
-  if (minutes < 60) return `${minutes}分钟`
+  if (minutes < 60) {
+    return TEXT.format(TEXT.durationMinutes, { n: minutes })
+  }
   const h = Math.floor(minutes / 60)
   const m = minutes % 60
-  return m > 0 ? `${h}小时${m}分钟` : `${h}小时`
+  return m > 0
+    ? TEXT.format(TEXT.durationHours, { h, m })
+    : TEXT.format(TEXT.durationHoursOnly, { h })
 }
 
 function getWeekDates() {

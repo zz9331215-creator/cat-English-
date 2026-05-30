@@ -1,6 +1,6 @@
 {
-  "navigationBarTitleText": "喵屋",
+  "navigationBarTitleText": "\u55b5\u5c4b",
   "usingComponents": {
-    "lottie-cat": "/components/lottie-cat/lottie-cat"
+    "kitten-avatar": "/components/kitten-avatar/kitten-avatar"
   }
 }

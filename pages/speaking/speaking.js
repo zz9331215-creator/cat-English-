@@ -1,9 +1,11 @@
 const { getRandomTopic } = require('../../utils/words-data')
 const { completeLearning } = require('../../utils/store')
 const { formatTime } = require('../../utils/util')
+const TEXT = require('../../utils/texts')
 
 Page({
   data: {
+    t: TEXT,
     topic: {},
     isRecording: false,
     seconds: 0,
@@ -28,7 +30,7 @@ Page({
       this.onRecordComplete()
     })
     this.recorderManager.onError(() => {
-      wx.showToast({ title: '录音失败', icon: 'none' })
+      wx.showToast({ title: TEXT.speakingRecordFail, icon: 'none' })
       this.stopRecord()
     })
   },
@@ -73,15 +75,28 @@ Page({
     this.setData({ isRecording: false })
   },
 
+  finishPractice() {
+    if (this.data.isRecording) {
+      this.stopRecord()
+      return
+    }
+    if (this.data.seconds > 0) {
+      this.onRecordComplete()
+    }
+  },
+
   onRecordComplete() {
     const minutes = Math.max(1, Math.ceil(this.data.seconds / 60))
     const result = completeLearning('speaking', minutes)
 
     wx.showModal({
-      title: '口语练习完成！',
-      content: `练习了 ${this.data.timerDisplay}，获得 ${result.stripsReward} 条猫条！`,
-      confirmText: '去喂猫',
-      cancelText: '继续练习',
+      title: TEXT.speakingCompleteTitle,
+      content: TEXT.format(TEXT.speakingCompleteContent, {
+        time: this.data.timerDisplay,
+        strips: result.stripsReward
+      }),
+      confirmText: TEXT.focusConfirmFeed,
+      cancelText: TEXT.speakingContinue,
       success: (res) => {
         if (res.confirm) {
           wx.switchTab({ url: '/pages/home/home' })

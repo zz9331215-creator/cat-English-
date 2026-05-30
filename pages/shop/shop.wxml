@@ -1,27 +1,25 @@
 <view class="container shop-page">
   <view class="shop-header">
-    <text class="section-title">猫条商店</text>
-    <text class="balance">余额: 🐟 {{catStrips}}</text>
+    <text class="section-title">{{t.shopTitle}}</text>
+    <text class="balance">{{t.shopBalance}} {{catStrips}}</text>
   </view>
-
   <view class="shop-grid">
     <view class="shop-item" wx:for="{{items}}" wx:key="id">
       <text class="item-emoji">{{item.emoji}}</text>
       <text class="item-name">{{item.name}}</text>
       <text class="item-desc">{{item.desc}}</text>
       <view class="item-price">
-        <text>{{item.price}} 猫条</text>
+        <text>{{item.price}}{{t.shopPriceUnit}}</text>
       </view>
       <view class="buy-btn {{catStrips >= item.price ? '' : 'disabled'}}" data-id="{{item.id}}" bindtap="buyItem">
-        兑换
+        {{t.shopRedeem}}
       </view>
     </view>
   </view>
-
   <view class="earn-tip card">
-    <text class="tip-title">如何赚取猫条？</text>
-    <text class="tip-item">📖 背单词 — 每 5 个词 +1 猫条</text>
-    <text class="tip-item">🎤 练口语 — 每 2 分钟 +1 猫条</text>
-    <text class="tip-item">🍅 专注学习 — 完成番茄钟 +奖励</text>
+    <text class="tip-title">{{t.shopEarnTitle}}</text>
+    <text class="tip-item">{{t.shopTip1}}</text>
+    <text class="tip-item">{{t.shopTip2}}</text>
+    <text class="tip-item">{{t.shopTip3}}</text>
   </view>
 </view>

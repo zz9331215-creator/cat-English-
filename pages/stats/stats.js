@@ -1,9 +1,11 @@
 const { getStore, STAGES, getStageByExp } = require('../../utils/store')
+const TEXT = require('../../utils/texts')
 
 Page({
   data: {
-    tabs: ['日', '周', '月', '总'],
-    activeTab: '总',
+    t: TEXT,
+    tabs: [TEXT.tabDay, TEXT.tabWeek, TEXT.tabMonth, TEXT.tabTotal],
+    activeTab: TEXT.tabTotal,
     stats: {},
     catStrips: 0,
     totalMinutes: 0,

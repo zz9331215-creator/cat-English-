@@ -17,7 +17,7 @@
       <view class="cat-head-btn">
         <view class="cat-ear cat-ear-left"></view>
         <view class="cat-ear cat-ear-right"></view>
-        <text class="cat-btn-text">喵屋</text>
+        <text class="cat-btn-text">{{item.text}}</text>
       </view>
     </block>
   </view>

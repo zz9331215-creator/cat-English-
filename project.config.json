@@ -1,9 +1,6 @@
 {
-  "description": "英语口语背单词养成小程序",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
+  "description": "english-cat-miniapp",
+  "packOptions": { "ignore": [], "include": [] },
   "setting": {
     "bundle": false,
     "userConfirmedBundleSwitch": false,
@@ -12,7 +9,7 @@
     "coverView": true,
     "es6": true,
     "postcss": true,
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
     "minified": true,
@@ -33,11 +30,7 @@
     "minifyWXSS": true,
     "showES6CompileOption": false,
     "minifyWXML": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
+    "babelSetting": { "ignore": [], "disablePlugins": [], "outputPath": "" },
     "compileWorklet": false,
     "localPlugins": false,
     "disableUseStrict": false,
@@ -51,9 +44,6 @@
   "appid": "touristappid",
   "projectname": "english-cat-miniapp",
   "condition": {},
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  },
+  "editorSetting": { "tabIndent": "insertSpaces", "tabSize": 2 },
   "simulatorPluginLibVersion": {}
 }

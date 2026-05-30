@@ -11,7 +11,7 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "喵学英语",
+    "navigationBarTitleText": "\u55b5\u55b5\u5b66\u82f1\u8bed",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F7F7F8",
     "backgroundTextStyle": "dark"
@@ -23,31 +23,16 @@
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [
-      {
-        "pagePath": "pages/focus/focus",
-        "text": "专注"
-      },
-      {
-        "pagePath": "pages/plan/plan",
-        "text": "计划"
-      },
-      {
-        "pagePath": "pages/home/home",
-        "text": "喵屋"
-      },
-      {
-        "pagePath": "pages/stats/stats",
-        "text": "统计"
-      },
-      {
-        "pagePath": "pages/profile/profile",
-        "text": "我的"
-      }
+      { "pagePath": "pages/focus/focus", "text": "\u4e13\u6ce8" },
+      { "pagePath": "pages/plan/plan", "text": "\u8ba1\u5212" },
+      { "pagePath": "pages/home/home", "text": "\u55b5\u5c4b" },
+      { "pagePath": "pages/stats/stats", "text": "\u7edf\u8ba1" },
+      { "pagePath": "pages/profile/profile", "text": "\u6211\u7684" }
     ]
   },
   "permission": {
     "scope.record": {
-      "desc": "用于口语练习录音功能"
+      "desc": "\u7528\u4e8e\u53e3\u8bed\u7ec3\u4e60\u5f55\u97f3\u529f\u80fd"
     }
   },
   "requiredPrivateInfos": [],

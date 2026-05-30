@@ -1,7 +1,9 @@
 const { getStore, getStageByExp, initStore, STORAGE_KEY } = require('../../utils/store')
+const TEXT = require('../../utils/texts')
 
 Page({
   data: {
+    t: TEXT,
     user: {},
     pet: {},
     stats: {},
@@ -36,15 +38,15 @@ Page({
 
   resetData() {
     wx.showModal({
-      title: '确认重置',
-      content: '这将清除所有学习数据和猫咪成长记录，确定吗？',
+      title: TEXT.resetTitle,
+      content: TEXT.resetContent,
       confirmColor: '#FF6B6B',
       success: (res) => {
         if (res.confirm) {
           wx.removeStorageSync(STORAGE_KEY)
           initStore()
           this.loadProfile()
-          wx.showToast({ title: '已重置', icon: 'success' })
+          wx.showToast({ title: TEXT.resetDone, icon: 'success' })
         }
       }
     })

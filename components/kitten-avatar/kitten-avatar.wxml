@@ -1,66 +1,53 @@
-<view class="kitten-wrap {{mood}} {{action}}" style="transform: scale({{size}});">
-  <!-- 尾巴 -->
-  <view class="tail">
-    <view class="tail-inner"></view>
-  </view>
-
-  <!-- 身体 -->
-  <view class="body">
-    <view class="belly"></view>
-    <!-- 前爪 -->
-    <view class="paw paw-left"></view>
-    <view class="paw paw-right"></view>
-  </view>
-
-  <!-- 头部 -->
-  <view class="head">
-    <!-- 耳朵 -->
-    <view class="ear ear-left">
-      <view class="ear-inner"></view>
-    </view>
-    <view class="ear ear-right">
-      <view class="ear-inner"></view>
-    </view>
-
-    <!-- 蝴蝶结 -->
-    <view class="bow bow-left"></view>
-    <view class="bow bow-right"></view>
-    <view class="bow-center"></view>
-
-    <!-- 脸 -->
-    <view class="face">
-      <!-- 眼睛 -->
-      <view class="eye eye-left">
-        <view class="eye-white">
-          <view class="pupil"></view>
-          <view class="highlight"></view>
+<view class="black-cat stage-{{stage}} mood-{{mood}} action-{{displayAction}}" style="--cat-scale: {{displaySize}};">
+  <view class="ledge"></view>
+  <view class="cat-body">
+    <view class="tail"></view>
+    <view class="head">
+      <view class="ear ear-left"></view>
+      <view class="ear ear-right"></view>
+      <view class="face">
+        <view class="eye eye-left">
+          <view class="eyeball">
+            <view class="pupil"></view>
+            <view class="shine"></view>
+          </view>
+          <view class="eyelid"></view>
+          <view class="eye-happy"></view>
         </view>
-        <view class="eyelid"></view>
-      </view>
-      <view class="eye eye-right">
-        <view class="eye-white">
-          <view class="pupil"></view>
-          <view class="highlight"></view>
+        <view class="eye eye-right">
+          <view class="eyeball">
+            <view class="pupil"></view>
+            <view class="shine"></view>
+          </view>
+          <view class="eyelid"></view>
+          <view class="eye-happy"></view>
         </view>
-        <view class="eyelid"></view>
+        <view class="tear tear-left"></view>
+        <view class="tear tear-right"></view>
+        <view class="whisker w-l1"></view>
+        <view class="whisker w-l2"></view>
+        <view class="whisker w-r1"></view>
+        <view class="whisker w-r2"></view>
+        <view class="mouth"></view>
+        <view class="cheek cheek-left"></view>
+        <view class="cheek cheek-right"></view>
       </view>
-
-      <!-- 鼻子嘴巴 -->
-      <view class="nose"></view>
-      <view class="mouth"></view>
-      <view class="whisker whisker-l1"></view>
-      <view class="whisker whisker-l2"></view>
-      <view class="whisker whisker-r1"></view>
-      <view class="whisker whisker-r2"></view>
-
-      <!-- 腮红 -->
-      <view class="blush blush-left"></view>
-      <view class="blush blush-right"></view>
+    </view>
+    <view class="paws">
+      <view class="paw paw-left"></view>
+      <view class="paw paw-right"></view>
     </view>
   </view>
-
-  <!-- 吃鱼干动画 -->
-  <view class="fish-snack" wx:if="{{action === 'eating'}}">
-    <text>🐟</text>
+  <view class="state-fx full-fx" wx:if="{{displayAction === 'full'}}">
+    <text class="fx-emoji">{{t.catFullFx}}</text>
+  </view>
+  <view class="state-fx hungry-fx" wx:if="{{displayAction === 'hungry'}}">
+    <text class="fx-bubble">{{t.catHungryBubble}}</text>
+  </view>
+  <view class="fish-snack" wx:if="{{displayAction === 'eating'}}">
+    <text>{{t.catEatFx}}</text>
+  </view>
+  <view class="state-fx study-fx" wx:if="{{displayAction === 'studying'}}">
+    <text class="fx-emoji">{{t.catStudyFx}}</text>
   </view>
 </view>

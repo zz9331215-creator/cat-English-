@@ -1,243 +1,148 @@
-.kitten-wrap {
+/* ��ɫ̽ͷСè - �ο��û���һ��ͼ */
+.black-cat {
   position: relative;
   width: 280rpx;
-  height: 320rpx;
+  height: 300rpx;
   margin: 0 auto;
-  animation: breathe 3s ease-in-out infinite;
+  transform: scale(var(--cat-scale, 1));
   transform-origin: center bottom;
+  overflow: visible;
 }
 
-.kitten-wrap.eating {
-  animation: eat-bounce 0.5s ease-in-out infinite;
+/* ---------- ſ�� ---------- */
+.ledge {
+  position: absolute;
+  left: -20rpx;
+  right: -20rpx;
+  bottom: 0;
+  height: 36rpx;
+  background: #FFFFFF;
+  border-radius: 6rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.08);
+  z-index: 5;
 }
 
-.kitten-wrap.hungry .mouth {
-  border-radius: 50%;
-  width: 20rpx;
-  height: 20rpx;
-  border: 3rpx solid #555;
-  background: #FF8A8A;
+/* ---------- ���� ---------- */
+.cat-body {
+  position: absolute;
+  left: 50%;
+  bottom: 28rpx;
+  transform: translateX(-50%);
+  width: 220rpx;
+  height: 240rpx;
+  z-index: 4;
+  transition: transform 0.45s ease;
 }
 
-/* 呼吸动画 */
-@keyframes breathe {
-  0%, 100% { transform: scale(var(--scale, 1)) translateY(0); }
-  50% { transform: scale(var(--scale, 1)) translateY(-8rpx); }
-}
-
-@keyframes eat-bounce {
-  0%, 100% { transform: scale(var(--scale, 1)) rotate(0deg); }
-  25% { transform: scale(var(--scale, 1)) rotate(-3deg); }
-  75% { transform: scale(var(--scale, 1)) rotate(3deg); }
-}
-
-/* 尾巴 */
 .tail {
   position: absolute;
-  bottom: 60rpx;
-  right: 20rpx;
-  width: 24rpx;
-  height: 100rpx;
+  left: -8rpx;
+  bottom: 70rpx;
+  width: 20rpx;
+  height: 88rpx;
+  background: #1A1A1A;
+  border-radius: 10rpx;
   transform-origin: bottom center;
-  animation: tail-wag 2s ease-in-out infinite;
-  z-index: 1;
+  animation: tail-sway 2.4s ease-in-out infinite;
 }
 
-.tail-inner {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #E8E8E8 0%, #C8C8C8 100%);
-  border-radius: 12rpx;
-  border: 3rpx solid #555;
+@keyframes tail-sway {
+  0%, 100% { transform: rotate(18deg); }
+  50% { transform: rotate(-8deg); }
 }
 
-@keyframes tail-wag {
-  0%, 100% { transform: rotate(15deg); }
-  50% { transform: rotate(-15deg); }
-}
-
-/* 身体 */
-.body {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180rpx;
-  height: 140rpx;
-  background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
-  border-radius: 90rpx 90rpx 60rpx 60rpx;
-  border: 4rpx solid #555;
-  z-index: 2;
-}
-
-.belly {
-  position: absolute;
-  bottom: 20rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100rpx;
-  height: 70rpx;
-  background: #FFFFFF;
-  border-radius: 50rpx;
-  opacity: 0.8;
-}
-
-.paw {
-  position: absolute;
-  bottom: -10rpx;
-  width: 44rpx;
-  height: 36rpx;
-  background: #FAFAFA;
-  border: 3rpx solid #555;
-  border-radius: 22rpx;
-}
-
-.paw-left { left: 30rpx; }
-.paw-right { right: 30rpx; }
-
-/* 头部 */
 .head {
   position: absolute;
-  top: 20rpx;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 200rpx;
-  height: 180rpx;
-  z-index: 3;
+  height: 170rpx;
 }
 
-/* 耳朵 */
 .ear {
   position: absolute;
   top: 0;
-  width: 60rpx;
-  height: 70rpx;
-  background: #FAFAFA;
-  border: 4rpx solid #555;
+  width: 56rpx;
+  height: 64rpx;
+  background: #1A1A1A;
+  border-radius: 50% 50% 0 0;
   z-index: 1;
 }
 
 .ear-left {
-  left: 10rpx;
-  border-radius: 30rpx 30rpx 0 0;
-  transform: rotate(-15deg);
-  animation: ear-twitch-left 4s ease-in-out infinite;
+  left: 18rpx;
+  transform: rotate(-18deg);
 }
 
 .ear-right {
-  right: 10rpx;
-  border-radius: 30rpx 30rpx 0 0;
-  transform: rotate(15deg);
-  animation: ear-twitch-right 4s ease-in-out infinite 0.5s;
+  right: 18rpx;
+  transform: rotate(18deg);
 }
 
-.ear-inner {
+.ear::after {
+  content: '';
   position: absolute;
-  top: 12rpx;
+  bottom: 8rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: 30rpx;
-  height: 36rpx;
-  background: #FFB6C1;
-  border-radius: 15rpx 15rpx 0 0;
+  width: 24rpx;
+  height: 28rpx;
+  background: #333;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.5;
 }
 
-@keyframes ear-twitch-left {
-  0%, 90%, 100% { transform: rotate(-15deg); }
-  95% { transform: rotate(-25deg); }
-}
-
-@keyframes ear-twitch-right {
-  0%, 90%, 100% { transform: rotate(15deg); }
-  95% { transform: rotate(25deg); }
-}
-
-/* 蝴蝶结 */
-.bow {
-  position: absolute;
-  top: 30rpx;
-  width: 28rpx;
-  height: 20rpx;
-  background: #C9A0FF;
-  border: 2rpx solid #9B6FD0;
-  border-radius: 50%;
-  z-index: 5;
-}
-
-.bow-left {
-  left: 28rpx;
-  transform: rotate(-20deg);
-}
-
-.bow-right {
-  right: 28rpx;
-  transform: rotate(20deg);
-}
-
-.bow-center {
-  position: absolute;
-  top: 36rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14rpx;
-  height: 14rpx;
-  background: #B088E8;
-  border-radius: 50%;
-  z-index: 6;
-}
-
-/* 脸 */
 .face {
   position: absolute;
-  top: 20rpx;
+  top: 28rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: 170rpx;
-  height: 150rpx;
-  background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+  width: 188rpx;
+  height: 148rpx;
+  background: #1A1A1A;
   border-radius: 50%;
-  border: 4rpx solid #555;
+  z-index: 2;
 }
 
-/* 眼睛 */
+/* ---------- �۾�������ƣ� ---------- */
 .eye {
   position: absolute;
-  top: 45rpx;
-  width: 44rpx;
-  height: 48rpx;
+  top: 42rpx;
+  width: 52rpx;
+  height: 52rpx;
 }
 
-.eye-left { left: 28rpx; }
-.eye-right { right: 28rpx; }
+.eye-left { left: 32rpx; }
+.eye-right { right: 32rpx; }
 
-.eye-white {
+.eyeball {
   width: 100%;
   height: 100%;
-  background: #FFFFFF;
+  background: radial-gradient(circle at 35% 30%, #FFE566 0%, #FFC107 55%, #FF9800 100%);
   border-radius: 50%;
-  border: 3rpx solid #555;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .pupil {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
-  width: 28rpx;
-  height: 32rpx;
-  background: radial-gradient(circle at 40% 35%, #6BB5FF 0%, #4A90D9 60%, #2E6BB0 100%);
+  transform: translate(-50%, -42%);
+  width: 22rpx;
+  height: 26rpx;
+  background: #0D0D0D;
   border-radius: 50%;
 }
 
-.highlight {
+.shine {
   position: absolute;
-  top: 8rpx;
-  left: 8rpx;
-  width: 12rpx;
-  height: 12rpx;
-  background: #FFFFFF;
+  top: 10rpx;
+  left: 12rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #FFF;
   border-radius: 50%;
   z-index: 2;
 }
@@ -248,82 +153,414 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #FAFAFA;
+  background: #1A1A1A;
   border-radius: 50%;
   transform-origin: top center;
-  animation: blink 4s ease-in-out infinite;
+  transform: scaleY(0);
   z-index: 3;
+  animation: cat-blink 4.2s ease-in-out infinite;
 }
 
-@keyframes blink {
-  0%, 48%, 52%, 100% { transform: scaleY(0); }
+@keyframes cat-blink {
+  0%, 46%, 54%, 100% { transform: scaleY(0); }
   50% { transform: scaleY(1); }
 }
 
-/* 鼻子 */
-.nose {
+.eye-happy {
+  display: none;
   position: absolute;
-  top: 88rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16rpx;
-  height: 12rpx;
-  background: #FFB6C1;
-  border-radius: 50%;
-  border: 2rpx solid #E8909A;
+  top: 18rpx;
+  left: 4rpx;
+  width: 44rpx;
+  height: 22rpx;
+  border-top: 6rpx solid #FFE566;
+  border-radius: 50% 50% 0 0;
+  z-index: 4;
 }
 
-/* 嘴巴 */
+.tear {
+  display: none;
+  position: absolute;
+  top: 88rpx;
+  width: 12rpx;
+  height: 20rpx;
+  background: #81D4FA;
+  border-radius: 0 0 50% 50%;
+  opacity: 0.85;
+  animation: tear-drop 1.2s ease-in-out infinite;
+}
+
+.tear-left { left: 48rpx; }
+.tear-right { right: 48rpx; }
+
+@keyframes tear-drop {
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50% { transform: translateY(8rpx); opacity: 0.4; }
+}
+
+.whisker {
+  position: absolute;
+  top: 92rpx;
+  width: 48rpx;
+  height: 2rpx;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.w-l1 { left: -6rpx; transform: rotate(-8deg); }
+.w-l2 { left: -6rpx; top: 104rpx; transform: rotate(8deg); }
+.w-r1 { right: -6rpx; transform: rotate(8deg); }
+.w-r2 { right: -6rpx; top: 104rpx; transform: rotate(-8deg); }
+
 .mouth {
   position: absolute;
-  top: 98rpx;
+  top: 108rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: 24rpx;
-  height: 12rpx;
-  border-bottom: 3rpx solid #555;
+  width: 20rpx;
+  height: 10rpx;
+  border-bottom: 3rpx solid rgba(255, 255, 255, 0.25);
   border-radius: 0 0 12rpx 12rpx;
 }
 
-/* 胡须 */
-.whisker {
+.cheek {
+  display: none;
   position: absolute;
-  top: 90rpx;
-  width: 40rpx;
-  height: 2rpx;
-  background: #999;
-}
-
-.whisker-l1 { left: -10rpx; transform: rotate(-10deg); }
-.whisker-l2 { left: -10rpx; top: 100rpx; transform: rotate(10deg); }
-.whisker-r1 { right: -10rpx; transform: rotate(10deg); }
-.whisker-r2 { right: -10rpx; top: 100rpx; transform: rotate(-10deg); }
-
-/* 腮红 */
-.blush {
-  position: absolute;
-  top: 78rpx;
-  width: 28rpx;
-  height: 16rpx;
-  background: #FFB6C1;
+  top: 88rpx;
+  width: 24rpx;
+  height: 14rpx;
+  background: #FF8A80;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-.blush-left { left: 8rpx; }
-.blush-right { right: 8rpx; }
+.cheek-left { left: 20rpx; }
+.cheek-right { right: 20rpx; }
 
-/* 鱼干零食 */
-.fish-snack {
+/* ---------- צ�� ---------- */
+.paws {
   position: absolute;
-  top: 120rpx;
-  right: -20rpx;
-  font-size: 48rpx;
-  animation: fish-eat 0.6s ease-in-out infinite;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  gap: 36rpx;
+  z-index: 6;
+}
+
+.paw {
+  width: 48rpx;
+  height: 40rpx;
+  background: #1A1A1A;
+  border-radius: 24rpx 24rpx 16rpx 16rpx;
+}
+
+/* ---------- ״̬��Ч ---------- */
+.state-fx {
+  position: absolute;
   z-index: 10;
 }
 
+.full-fx {
+  top: -10rpx;
+  right: 0;
+  animation: fx-float 2s ease-in-out infinite;
+}
+
+.hungry-fx {
+  top: -36rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.fx-bubble {
+  font-size: 22rpx;
+  color: #FF6B35;
+  background: #FFF;
+  padding: 8rpx 18rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #FFE0B2;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.study-fx {
+  top: 8rpx;
+  left: -8rpx;
+  animation: fx-float 2.5s ease-in-out infinite;
+}
+
+.fx-emoji {
+  font-size: 36rpx;
+}
+
+.fish-snack {
+  position: absolute;
+  top: 100rpx;
+  right: -16rpx;
+  font-size: 44rpx;
+  z-index: 12;
+  animation: fish-eat 0.55s ease-in-out infinite;
+}
+
 @keyframes fish-eat {
-  0%, 100% { transform: translateX(0) rotate(0deg); opacity: 1; }
-  50% { transform: translateX(-30rpx) rotate(-20deg); opacity: 0.3; }
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(-24rpx) rotate(-15deg); }
+}
+
+@keyframes fx-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10rpx); }
+}
+
+/* ========== ����������̽ͷ ========== */
+.action-idle .cat-body,
+.action-normal .cat-body {
+  animation: peek-breathe 3s ease-in-out infinite;
+}
+
+@keyframes peek-breathe {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6rpx); }
+}
+
+/* ========== ������ſ�� ========== */
+.action-lying .cat-body {
+  transform: translateX(-50%) translateY(52rpx) scale(0.92);
+  animation: none;
+}
+
+.action-lying .head {
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.action-lying .eyeball,
+.action-lying .pupil {
+  opacity: 0;
+}
+
+.action-lying .eye-happy {
+  display: block;
+}
+
+.action-lying .eyelid {
+  animation: none;
+  transform: scaleY(0.55);
+}
+
+.action-lying .paws {
+  gap: 12rpx;
+}
+
+.action-lying .paw {
+  width: 56rpx;
+  height: 28rpx;
+  border-radius: 20rpx;
+}
+
+.action-lying .tail {
+  animation: none;
+  transform: rotate(5deg);
+  height: 60rpx;
+}
+
+/* ========== �������Ա��� ========== */
+.action-full .cat-body {
+  animation: full-purr 2.5s ease-in-out infinite;
+}
+
+@keyframes full-purr {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-50%) translateY(-4rpx) rotate(-1deg); }
+  75% { transform: translateX(-50%) translateY(-4rpx) rotate(1deg); }
+}
+
+.action-full .eyeball,
+.action-full .pupil,
+.action-full .shine {
+  opacity: 0;
+}
+
+.action-full .eye-happy {
+  display: block;
+}
+
+.action-full .eyelid {
+  animation: none;
+  transform: scaleY(0);
+}
+
+.action-full .cheek {
+  display: block;
+}
+
+.action-full .mouth {
+  width: 28rpx;
+  height: 14rpx;
+  border: none;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.action-full .mouth::before,
+.action-full .mouth::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 14rpx;
+  height: 8rpx;
+  border-top: 3rpx solid rgba(255, 255, 255, 0.35);
+  border-radius: 50% 50% 0 0;
+}
+
+.action-full .mouth::before { left: 0; transform: rotate(-8deg); }
+.action-full .mouth::after { right: 0; transform: rotate(8deg); }
+
+/* ========== ���������� ========== */
+.action-hungry .cat-body {
+  animation: hungry-sway 1.8s ease-in-out infinite;
+}
+
+@keyframes hungry-sway {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-52%) rotate(-2deg); }
+  75% { transform: translateX(-48%) rotate(2deg); }
+}
+
+.action-hungry .eyeball {
+  background: radial-gradient(circle at 50% 60%, #FFE566 0%, #FFC107 100%);
+}
+
+.action-hungry .pupil {
+  width: 26rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  transform: translate(-50%, -50%);
+}
+
+.action-hungry .shine {
+  display: none;
+}
+
+.action-hungry .tear {
+  display: block;
+}
+
+.action-hungry .mouth {
+  width: 24rpx;
+  height: 20rpx;
+  border: 3rpx solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 138, 128, 0.35);
+}
+
+/* ========== ��������ʳ ========== */
+.action-eating .cat-body {
+  animation: eat-bounce 0.45s ease-in-out infinite;
+}
+
+@keyframes eat-bounce {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(3deg) translateY(-4rpx); }
+}
+
+/* ========== ������רעѧϰ ========== */
+.action-studying .cat-body {
+  animation: study-focus 4s ease-in-out infinite;
+}
+
+@keyframes study-focus {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8rpx); }
+}
+
+.action-studying .eyelid {
+  animation: study-blink 6s ease-in-out infinite;
+}
+
+@keyframes study-blink {
+  0%, 92%, 100% { transform: scaleY(0); }
+  96% { transform: scaleY(1); }
+}
+
+.action-studying .pupil {
+  transform: translate(-50%, -50%);
+}
+
+/* ========== �ɳ��׶Σ���è �� ��è �� ���� �� ��è �� ��� ========== */
+.stage-baby .tail {
+  display: none;
+}
+
+.stage-baby .cat-body {
+  height: 200rpx;
+}
+
+.stage-baby .head {
+  width: 160rpx;
+  height: 140rpx;
+}
+
+.stage-baby .face {
+  width: 150rpx;
+  height: 120rpx;
+}
+
+.stage-baby .eye {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.stage-baby .mouth {
+  width: 28rpx;
+  height: 14rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.35);
+  border-radius: 0 0 14rpx 14rpx;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stage-kitten .cat-body {
+  height: 220rpx;
+}
+
+.stage-teen .cat-body {
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.stage-teen .head {
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.stage-adult .cat-body {
+  bottom: 36rpx;
+  height: 250rpx;
+}
+
+.stage-adult .paws .paw {
+  width: 52rpx;
+  height: 44rpx;
+}
+
+.stage-chubby .cat-body {
+  width: 260rpx;
+  height: 270rpx;
+  bottom: 32rpx;
+}
+
+.stage-chubby .face {
+  width: 210rpx;
+  height: 168rpx;
+}
+
+.stage-chubby .head {
+  width: 220rpx;
+  height: 190rpx;
+}
+
+.stage-chubby .paws .paw {
+  width: 58rpx;
+  height: 46rpx;
 }

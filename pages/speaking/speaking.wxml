@@ -1,41 +1,27 @@
 <view class="container speaking-page">
   <view class="header">
-    <view class="section-title">口语<text class="orange-underline">练习</text></view>
-    <text class="section-subtitle">跟着咪咪一起开口说英语</text>
+    <view class="section-title">{{t.speakingTitle}}<text class="orange-underline">{{t.speakingTitleHighlight}}</text></view>
+    <text class="section-subtitle">{{t.speakingSubtitle}}</text>
   </view>
-
-  <!-- 话题卡片 -->
   <view class="topic-card">
     <view class="topic-header">
-      <text class="topic-tag">今日话题</text>
+      <text class="topic-tag">{{t.speakingTodayTopic}}</text>
       <text class="topic-title">{{topic.title}}</text>
     </view>
     <text class="topic-prompt">{{topic.prompt}}</text>
-    <text class="topic-hint">💡 提示: {{topic.hint}}</text>
+    <text class="topic-hint">{{t.iconBulb}} {{t.speakingHintPrefix}}{{topic.hint}}</text>
   </view>
-
-  <!-- 小猫陪伴 -->
   <view class="companion-area">
-    <lottie-cat width="220" height="220" size="0.6" mood="{{isRecording ? 'happy' : 'normal'}}" action="studying" />
-    <text class="companion-text" wx:if="{{isRecording}}">咪咪在认真听你说~</text>
+    <kitten-avatar size="0.72" stage="kitten" mood="{{isRecording ? 'happy' : 'normal'}}" action="studying" />
+    <text class="companion-text" wx:if="{{isRecording}}">{{t.speakingListening}}</text>
   </view>
-
-  <!-- 录音计时 -->
   <view class="timer-area">
     <text class="speak-timer">{{timerDisplay}}</text>
-    <text class="timer-label">{{isRecording ? '录音中...' : '点击下方按钮开始'}}</text>
   </view>
-
-  <!-- 录音按钮 -->
-  <view class="record-area">
-    <view class="record-btn {{isRecording ? 'recording' : ''}}" bindtap="toggleRecord">
-      <text class="record-icon">{{isRecording ? '⏹' : '🎤'}}</text>
+  <view class="record-btn {{isRecording ? 'recording' : ''}}" bindtap="toggleRecord">
+    <view class="record-inner">
+      <text>{{isRecording ? t.speakingStop : t.speakingRecord}}</text>
     </view>
-    <text class="record-hint">{{isRecording ? '点击结束' : '按住说话'}}</text>
   </view>
-
-  <!-- 换话题 -->
-  <view class="change-topic" bindtap="changeTopic">
-    <text>🔄 换一个话题</text>
-  </view>
+  <button class="btn-secondary finish-btn" bindtap="finishPractice">{{t.speakingFinish}}</button>
 </view>

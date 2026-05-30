@@ -2,9 +2,11 @@ const { getDailyWords } = require('../../utils/words-data')
 const { completeLearning, getStore } = require('../../utils/store')
 const { getProgressPercent } = require('../../utils/util')
 const { playWord, enrichWord } = require('../../utils/audio')
+const TEXT = require('../../utils/texts')
 
 Page({
   data: {
+    t: TEXT,
     words: [],
     currentIndex: 0,
     currentWord: {},
@@ -59,7 +61,7 @@ Page({
       })
       .catch(() => {
         this.setData({ isPlaying: false })
-        wx.showToast({ title: '发音播放失败', icon: 'none' })
+        wx.showToast({ title: TEXT.wordsPlayFail, icon: 'none' })
       })
   },
 
@@ -67,7 +69,7 @@ Page({
     const accent = this.data.accent === 'us' ? 'uk' : 'us'
     this.setData({ accent })
     wx.showToast({
-      title: accent === 'us' ? '已切换美音' : '已切换英音',
+      title: accent === 'us' ? TEXT.wordsSwitchUs : TEXT.wordsSwitchUk,
       icon: 'none'
     })
   },
@@ -92,10 +94,13 @@ Page({
       this.setData({ earnedStrips: this.data.earnedStrips + result.stripsReward })
 
       wx.showModal({
-        title: '单词背诵完成！',
-        content: `认识了 ${newKnowCount} 个单词，获得 ${result.stripsReward} 条猫条！`,
-        confirmText: '去喂猫',
-        cancelText: '再来一组',
+        title: TEXT.wordsCompleteTitle,
+        content: TEXT.format(TEXT.wordsCompleteContent, {
+          count: newKnowCount,
+          strips: result.stripsReward
+        }),
+        confirmText: TEXT.focusConfirmFeed,
+        cancelText: TEXT.wordsAgain,
         success: (res) => {
           if (res.confirm) {
             wx.switchTab({ url: '/pages/home/home' })

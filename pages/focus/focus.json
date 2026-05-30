@@ -1,6 +1,6 @@
 {
-  "navigationBarTitleText": "专注学习",
+  "navigationBarTitleText": "\u4e13\u6ce8",
   "usingComponents": {
-    "lottie-cat": "/components/lottie-cat/lottie-cat"
+    "kitten-avatar": "/components/kitten-avatar/kitten-avatar"
   }
 }

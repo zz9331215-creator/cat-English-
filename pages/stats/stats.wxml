@@ -1,9 +1,7 @@
 <view class="container stats-page">
   <view class="stats-header">
-    <text class="section-title">统计数据</text>
+    <text class="section-title">{{t.statsTitle}}</text>
   </view>
-
-  <!-- 时间范围 -->
   <view class="time-tabs">
     <view
       class="time-tab {{activeTab === item ? 'active' : ''}}"
@@ -13,41 +11,37 @@
       bindtap="switchTab"
     >{{item}}</view>
   </view>
-
-  <!-- 概览卡片 -->
   <view class="overview-card card">
-    <text class="card-title">学习概览</text>
+    <text class="card-title">{{t.statsOverview}}</text>
     <view class="metrics-grid">
       <view class="metric-item">
         <text class="metric-value">{{stats.focusCount}}</text>
-        <text class="metric-label">专注次数</text>
+        <text class="metric-label">{{t.metricFocus}}</text>
       </view>
       <view class="metric-item">
         <text class="metric-value">{{stats.wordsLearned}}</text>
-        <text class="metric-label">已学单词</text>
+        <text class="metric-label">{{t.metricWords}}</text>
       </view>
       <view class="metric-item highlight">
         <text class="metric-value">{{catStrips}}</text>
-        <text class="metric-label">猫条总数</text>
+        <text class="metric-label">{{t.metricStripsTotal}}</text>
       </view>
       <view class="metric-item">
         <text class="metric-value">{{stats.speakingMinutes}}</text>
-        <text class="metric-label">口语分钟</text>
+        <text class="metric-label">{{t.metricSpeaking}}</text>
       </view>
       <view class="metric-item">
         <text class="metric-value">{{stats.feedCount}}</text>
-        <text class="metric-label">喂食次数</text>
+        <text class="metric-label">{{t.metricFeed}}</text>
       </view>
       <view class="metric-item">
         <text class="metric-value">{{totalMinutes}}</text>
-        <text class="metric-label">总学习时长</text>
+        <text class="metric-label">{{t.metricTotalTime}}</text>
       </view>
     </view>
   </view>
-
-  <!-- 打卡热力图 -->
   <view class="heatmap-card card">
-    <text class="card-title">学习打卡</text>
+    <text class="card-title">{{t.statsCheckin}}</text>
     <view class="heatmap">
       <view
         class="heat-cell level-{{item.level}}"
@@ -56,18 +50,16 @@
       ></view>
     </view>
     <view class="heat-legend">
-      <text class="legend-label">少</text>
+      <text class="legend-label">{{t.legendLess}}</text>
       <view class="heat-cell level-0"></view>
       <view class="heat-cell level-1"></view>
       <view class="heat-cell level-2"></view>
       <view class="heat-cell level-3"></view>
-      <text class="legend-label">多</text>
+      <text class="legend-label">{{t.legendMore}}</text>
     </view>
   </view>
-
-  <!-- 成长阶段 -->
   <view class="growth-card card">
-    <text class="card-title">咪咪成长</text>
+    <text class="card-title">{{t.statsGrowth}}</text>
     <view class="stage-timeline">
       <view
         class="stage-item {{item.reached ? 'reached' : ''}} {{item.current ? 'current' : ''}}"

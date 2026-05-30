@@ -4,39 +4,33 @@
     <view class="progress-bar">
       <view class="progress-fill" style="width: {{progressPercent}}%"></view>
     </view>
-    <text class="strips-earned">已获 🐟 {{earnedStrips}}</text>
+    <text class="strips-earned">{{t.wordsEarned}}{{t.wordsEarnedSuffix}}{{earnedStrips}}</text>
   </view>
-
-  <!-- 单词卡片 -->
   <view class="word-card {{showMeaning ? 'flipped' : ''}}" bindtap="flipCard">
     <view class="card-front">
       <text class="word-text">{{currentWord.word}}</text>
       <text class="phonetic">{{currentWord.phonetic}}</text>
-      <text class="tap-hint">点击翻转查看释义</text>
+      <text class="tap-hint">{{t.wordsTapFlip}}</text>
     </view>
     <view class="card-back">
       <text class="meaning">{{currentWord.meaning}}</text>
       <text class="example">{{currentWord.example}}</text>
     </view>
   </view>
-
-  <!-- 操作按钮 -->
   <view class="action-row">
     <view class="action-btn forget" bindtap="markForget">
-      <text>😿 不认识</text>
+      <text>{{t.iconSad}} {{t.wordsForget}}</text>
     </view>
     <view class="action-btn know" bindtap="markKnow">
-      <text>😺 认识了</text>
+      <text>{{t.iconHappy}} {{t.wordsKnow}}</text>
     </view>
   </view>
-
-  <!-- 发音按钮 -->
   <view class="speak-row">
     <view class="speak-btn {{isPlaying ? 'playing' : ''}}" bindtap="playWord">
-      <text>{{isPlaying ? '🔊 播放中...' : '🔊 发音'}}</text>
+      <text>{{isPlaying ? t.wordsPlaying : t.wordsPronounce}}</text>
     </view>
     <view class="accent-btn" bindtap="toggleAccent">
-      <text>{{accent === 'us' ? '🇺🇸 美音' : '🇬🇧 英音'}}</text>
+      <text>{{accent === 'us' ? t.wordsUsAccent : t.wordsUkAccent}}</text>
     </view>
   </view>
 </view>

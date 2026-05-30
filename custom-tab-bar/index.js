@@ -1,12 +1,14 @@
+const TEXT = require('../utils/texts')
+
 Component({
   data: {
     selected: 0,
     list: [
-      { pagePath: '/pages/focus/focus', text: '专注', icon: '🍅' },
-      { pagePath: '/pages/plan/plan', text: '计划', icon: '📅' },
-      { pagePath: '/pages/home/home', text: '喵屋', icon: '🐱' },
-      { pagePath: '/pages/stats/stats', text: '统计', icon: '📊' },
-      { pagePath: '/pages/profile/profile', text: '我的', icon: '😺' }
+      { pagePath: '/pages/focus/focus', text: TEXT.tabFocus, icon: TEXT.iconTomato },
+      { pagePath: '/pages/plan/plan', text: TEXT.tabPlan, icon: TEXT.iconBook },
+      { pagePath: '/pages/home/home', text: TEXT.tabHome, icon: TEXT.iconCat },
+      { pagePath: '/pages/stats/stats', text: TEXT.tabStats, icon: TEXT.iconBook },
+      { pagePath: '/pages/profile/profile', text: TEXT.tabMine, icon: TEXT.iconCat }
     ]
   },
 
