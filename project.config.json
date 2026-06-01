@@ -12,6 +12,7 @@
       { "type": "file", "value": "assets/icons/tab-home.png" },
       { "type": "file", "value": "assets/video/cat-idle.webm" },
       { "type": "file", "value": "assets/video/cat-idle.webp" },
+      { "type": "file", "value": "assets/video/cat-hungry.webp" },
       { "type": "file", "value": "assets/lottie/test.json" }
     ],
     "include": []

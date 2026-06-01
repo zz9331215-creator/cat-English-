@@ -52,6 +52,9 @@
         size="{{petDisplaySize}}"
         mood="{{pet.mood}}"
         action="{{kittenAction === 'eating' ? 'eating' : 'idle'}}"
+        webp-src="/assets/video/cat-hungry.webp"
+        gif-src="/assets/video/cat-hungry.gif"
+        mp4-src="/assets/video/cat-hungry.mp4"
       />
     </view>
   </view>
