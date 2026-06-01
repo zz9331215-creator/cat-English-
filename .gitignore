@@ -12,3 +12,4 @@ dist/
 package-lock.json
 miniprogram_npm/
 /scripts/dev-open.bat
+assets/video/cat-idle.webm

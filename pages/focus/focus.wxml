@@ -7,7 +7,13 @@
     <view class="timer-ring">
       <view class="ring-progress" style="--progress: {{progressPercent}}"></view>
       <view class="ring-inner">
-        <kitten-avatar size="{{petDisplaySize}}" stage="{{petStage}}" mood="{{petMood}}" action="{{kittenAction}}" />
+        <video-cat
+          width="280"
+          height="280"
+          size="{{petDisplaySize}}"
+          mood="{{petMood}}"
+          action="{{kittenAction}}"
+        />
       </view>
     </view>
     <view class="community-tag">

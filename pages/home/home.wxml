@@ -46,7 +46,13 @@
       <view class="speech-btn" wx:if="{{pet.mood === 'hungry'}}" bindtap="onHungryAction">{{catStrips > 0 ? t.goFeed : t.goLearn}}</view>
     </view>
     <view class="kitten-area" bindtap="onKittenTap">
-      <apng-cat width="{{catImageWidth}}" />
+      <video-cat
+        width="{{catImageWidth}}"
+        height="{{catImageWidth}}"
+        size="{{petDisplaySize}}"
+        mood="{{pet.mood}}"
+        action="{{kittenAction === 'eating' ? 'eating' : 'idle'}}"
+      />
     </view>
   </view>
   <view class="side-menu">

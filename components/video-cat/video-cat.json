@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "kitten-avatar": "/components/kitten-avatar/kitten-avatar"
+  }
+}

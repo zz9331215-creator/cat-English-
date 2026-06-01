@@ -1,0 +1,33 @@
+<view class="video-wrap" style="width: {{width}}rpx; height: {{height}}rpx;">
+  <image
+    wx:if="{{(mediaMode === 'webp' || mediaMode === 'gif') && !useFallback}}"
+    class="cat-media"
+    src="{{mediaSrc}}"
+    mode="aspectFit"
+    binderror="onImageError"
+  />
+  <video
+    wx:elif="{{mediaMode === 'video' && videoReady && !useFallback}}"
+    id="{{videoId}}"
+    class="cat-media video-cat transparent-bg"
+    src="{{mediaSrc}}"
+    autoplay
+    loop
+    muted
+    controls="{{false}}"
+    show-center-play-btn="{{false}}"
+    show-play-btn="{{false}}"
+    show-fullscreen-btn="{{false}}"
+    enable-progress-gesture="{{false}}"
+    enable-play-gesture="{{false}}"
+    object-fit="contain"
+    binderror="onVideoError"
+    bindloadedmetadata="onVideoReady"
+  />
+  <kitten-avatar
+    wx:else
+    size="{{size}}"
+    mood="{{mood}}"
+    action="{{action}}"
+  />
+</view>

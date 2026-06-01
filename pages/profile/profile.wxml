@@ -1,6 +1,6 @@
 <view class="container profile-page">
   <view class="user-header">
-    <image class="avatar-img" src="/assets/icons/app-icon-144.png" mode="aspectFill" />
+    <view class="avatar-img">🐱</view>
     <view class="user-info">
       <text class="username">{{user.nickname}}</text>
       <text class="user-id">{{t.profileStudyDays}} {{studyDays}}{{t.profileDaysUnit}}</text>

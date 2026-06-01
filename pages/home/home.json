@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "\u55b5\u5c4b",
   "usingComponents": {
-    "apng-cat": "/components/apng-cat/apng-cat"
+    "video-cat": "/components/video-cat/video-cat"
   }
 }

@@ -1,7 +1,19 @@
 {
   "description": "english-cat-miniapp",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      { "type": "folder", "value": "scripts" },
+      { "type": "folder", "value": "node_modules" },
+      { "type": "file", "value": "README.md" },
+      { "type": "file", "value": "assets/app-icon.png" },
+      { "type": "file", "value": "assets/icons/app-icon-1024.png" },
+      { "type": "file", "value": "assets/icons/app-icon-512.png" },
+      { "type": "file", "value": "assets/icons/app-icon-144.png" },
+      { "type": "file", "value": "assets/icons/tab-home.png" },
+      { "type": "file", "value": "assets/video/cat-idle.webm" },
+      { "type": "file", "value": "assets/video/cat-idle.webp" },
+      { "type": "file", "value": "assets/lottie/test.json" }
+    ],
     "include": []
   },
   "setting": {
@@ -19,7 +31,7 @@
     "autoAudits": false,
     "newFeature": false,
     "uglifyFileName": false,
-    "uploadWithSourceMap": true,
+    "uploadWithSourceMap": false,
     "useIsolateContext": true,
     "nodeModules": true,
     "enhance": true,
@@ -48,7 +60,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.5.5",
-  "appid": "touristappid",
+  "appid": "wxe214463a70ff6442",
   "projectname": "english-cat-miniapp",
   "condition": {},
   "editorSetting": {

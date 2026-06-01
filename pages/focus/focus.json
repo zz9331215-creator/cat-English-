@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "\u4e13\u6ce8",
   "usingComponents": {
-    "kitten-avatar": "/components/kitten-avatar/kitten-avatar"
+    "video-cat": "/components/video-cat/video-cat"
   }
 }
