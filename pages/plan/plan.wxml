@@ -21,6 +21,13 @@
       </view>
     </view>
   </view>
+  <view class="plan-cat-card card">
+    <apng-cat width="{{catImageWidth}}" />
+    <view class="plan-cat-hint" wx:if="{{stageName}}">
+      <text class="plan-cat-stage">{{stageName}}</text>
+      <text class="plan-cat-desc">{{progressDesc}}</text>
+    </view>
+  </view>
   <view class="daily-progress card">
     <view class="progress-ring">
       <text class="ring-text">{{dailyPercent}}%</text>

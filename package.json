@@ -4,7 +4,7 @@
   "description": "WeChat miniapp for English learning with pet cat",
   "main": "app.js",
   "scripts": {
-    "open": "scripts\\dev-open.bat",
+    "open": "node scripts/open-wechat.js",
     "build:npm": "node scripts/build-npm.js",
     "fix:utf8": "node scripts/fix-utf8-ascii.js"
   },

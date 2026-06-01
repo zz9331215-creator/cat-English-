@@ -1,0 +1,9 @@
+<view class="apng-cat">
+  <image
+    class="apng-cat-img"
+    src="{{src}}"
+    mode="{{mode}}"
+    style="{{imgStyle}}"
+    show-menu-by-longpress="{{false}}"
+  />
+</view>

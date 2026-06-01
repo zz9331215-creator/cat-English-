@@ -1,6 +1,12 @@
-const { getStore } = require('../../utils/store')
+const { getStore, getStageByExp } = require('../../utils/store')
 const { getWeekDates, getProgressPercent } = require('../../utils/util')
 const TEXT = require('../../utils/texts')
+
+function calcCatImageWidth(size) {
+  const base = 280
+  const s = Number(size) || 0.72
+  return Math.round(base * Math.max(0.55, Math.min(1.35, s)))
+}
 
 Page({
   data: {
@@ -19,7 +25,9 @@ Page({
     tasks: [],
     doneCount: 0,
     dailyPercent: 0,
-    progressDesc: ''
+    progressDesc: '',
+    stageName: '',
+    catImageWidth: 280
   },
 
   onShow() {
@@ -38,6 +46,8 @@ Page({
     }))
     const tasks = store.tasks.items
     const doneCount = tasks.filter(t => t.done).length
+    const stage = getStageByExp(store.pet.exp)
+    const petSize = Number(store.pet.size) || stage.size || 0.72
 
     this.setData({
       monthText: `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}`,
@@ -48,7 +58,9 @@ Page({
       progressDesc: TEXT.format(TEXT.planProgressDesc, {
         done: doneCount,
         total: tasks.length
-      })
+      }),
+      stageName: stage.name,
+      catImageWidth: calcCatImageWidth(petSize)
     })
   },
 

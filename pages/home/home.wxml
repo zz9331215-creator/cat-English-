@@ -33,7 +33,7 @@
       <view class="curtain curtain-right"></view>
     </view>
     <view class="deco photo photo-1">
-      <image class="photo-img" src="/assets/images/black-kitten-peek.png" mode="aspectFill" />
+      <image class="photo-img" src="/assets/images/kitten-cat.apng" mode="aspectFill" />
     </view>
     <view class="deco photo photo-2">{{t.iconCat}}</view>
     <view class="deco board">
@@ -46,7 +46,7 @@
       <view class="speech-btn" wx:if="{{pet.mood === 'hungry'}}" bindtap="onHungryAction">{{catStrips > 0 ? t.goFeed : t.goLearn}}</view>
     </view>
     <view class="kitten-area" bindtap="onKittenTap">
-      <kitten-avatar size="{{petDisplaySize}}" stage="{{pet.stage}}" mood="{{pet.mood}}" action="{{kittenAction}}" />
+      <apng-cat width="{{catImageWidth}}" />
     </view>
   </view>
   <view class="side-menu">

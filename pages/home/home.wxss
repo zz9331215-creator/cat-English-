@@ -109,7 +109,7 @@
   border-top: 4rpx solid #D4C4A0;
 }
 
-/* 装饰�? */
+/* 装饰�?? */
 .deco {
   position: absolute;
   z-index: 2;
@@ -244,12 +244,12 @@
 /* 小猫区域 */
 .kitten-area {
   position: absolute;
-  bottom: 22%;
+  bottom: 18%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 6;
-  width: 320rpx;
-  height: 340rpx;
+  width: 380rpx;
+  min-height: 360rpx;
   display: flex;
   align-items: flex-end;
   justify-content: center;

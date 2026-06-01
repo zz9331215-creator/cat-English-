@@ -1,6 +1,12 @@
 const { getStore, saveStore, feedPet, decaySatiety, getStageByExp, getPetSpeech, getPetAction } = require('../../utils/store')
 const TEXT = require('../../utils/texts')
 
+function calcCatImageWidth(size) {
+  const base = 320
+  const s = Number(size) || 0.72
+  return Math.round(base * Math.max(0.55, Math.min(1.35, s)))
+}
+
 Page({
   data: {
     t: TEXT,
@@ -19,6 +25,7 @@ Page({
     showSpeech: true,
     kittenAction: 'idle',
     petDisplaySize: 1,
+    catImageWidth: 280,
     showReward: false,
     rewardExp: 0,
     stageUp: false
@@ -60,7 +67,8 @@ Page({
       growthPercent: isNaN(growthPercent) ? 0 : growthPercent,
       speechText: getPetSpeech(store.pet),
       kittenAction,
-      petDisplaySize
+      petDisplaySize,
+      catImageWidth: calcCatImageWidth(petDisplaySize)
     })
   },
 

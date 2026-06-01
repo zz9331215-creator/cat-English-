@@ -1,0 +1,22 @@
+.apng-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.apng-cat-img {
+  display: block;
+  flex-shrink: 0;
+  animation: cat-idle 2.8s ease-in-out infinite;
+}
+
+@keyframes cat-idle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10rpx);
+  }
+}
